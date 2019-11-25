@@ -23,7 +23,6 @@ func InOrderIterative(root *TreeNode) {
 		return
 	}
 
-
 }
 
 // 	root := &datastructure.TreeNode{10, nil, nil}
