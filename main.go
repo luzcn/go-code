@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	ds "go-code/src/datastructure"
-	lc "go-code/src/leetcode"
+	ds "github.com/luzcn/go-code/src/datastructure"
+	lc "github.com/luzcn/go-code/src/leetcode"
 )
 
 func main() {
