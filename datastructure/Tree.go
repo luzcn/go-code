@@ -1,6 +1,8 @@
 package datastructure
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type TreeNode struct {
 	Val   int
@@ -23,6 +25,25 @@ func InOrderIterative(root *TreeNode) {
 		return
 	}
 
+	var stack []*TreeNode
+	current := root
+
+	for {
+		if current != nil {
+			stack = append(stack, current)
+			current = current.Left
+		} else if len(stack) != 0 {
+			n := len(stack)
+			current = stack[n-1]
+			stack = stack[:n-1]
+
+			fmt.Println(current.Val)
+
+			current = current.Right
+		} else {
+			break
+		}
+	}
 }
 
 // 	root := &datastructure.TreeNode{10, nil, nil}
