@@ -1,21 +1,27 @@
 package datastructure
 
-type Stack struct {
+type Stack interface {
+	Push(v interface{})
+	Pop() interface{}
+	Size() int
+}
+
+type stack struct {
 	data []interface{}
 }
 
-func (s *Stack) Push(v interface{}) {
+func (s *stack) Push(v interface{}) {
 
 	if v == nil {
-		panic("nil is not allowd to push into Stack")
+		panic("nil is not allowd to push into stack")
 	}
 
 	s.data = append(s.data, v)
 }
 
-func (s *Stack) Pop() interface{} {
+func (s *stack) Pop() interface{} {
 	if len(s.data) == 0 {
-		panic("cannot pop from empty Stack")
+		panic("cannot pop from empty stack")
 	}
 	n := len(s.data)
 	v := s.data[n-1]
@@ -24,8 +30,12 @@ func (s *Stack) Pop() interface{} {
 	return v
 }
 
-func (s *Stack) Size() int {
+func (s *stack) Size() int {
 	return len(s.data)
+}
+
+func NewStack() Stack {
+	return &stack{}
 }
 
 // import (
@@ -34,7 +44,7 @@ func (s *Stack) Size() int {
 // )
 //
 // func main() {
-//	stack := ds.Stack{}
+//	stack := ds.stack{}
 //
 //	stack.Push(1)
 //
